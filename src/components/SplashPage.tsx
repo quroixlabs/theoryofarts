@@ -28,6 +28,16 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
+        {/* Logo Placeholder */}
+        <motion.div
+          className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#B6B6B4] flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.1 }}
+        >
+          <span className="text-[#B6B6B4]">LOGO</span>
+        </motion.div>
+
         {/* Main Title */}
         <motion.h1 
           className="text-6xl md:text-8xl text-[#F5F5F5] tracking-wider text-center"

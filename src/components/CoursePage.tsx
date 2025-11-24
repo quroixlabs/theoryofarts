@@ -93,13 +93,19 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <button
-            onClick={() => onNavigate('splash')}
-            className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Theory of Arts
-          </button>
+          <div className="flex items-center gap-4">
+            {/* Logo Placeholder */}
+            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[#B6B6B4] flex items-center justify-center">
+              <span className="text-[#B6B6B4] text-xs">LOGO</span>
+            </div>
+            <button
+              onClick={() => onNavigate('splash')}
+              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              Theory of Arts
+            </button>
+          </div>
           <MobileNav currentPage="course" onNavigate={onNavigate} />
         </div>
       </motion.header>

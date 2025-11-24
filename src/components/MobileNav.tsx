@@ -54,18 +54,18 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-[#000100]/98 backdrop-blur-md z-40 md:hidden"
+            className="fixed inset-0 bg-[#000100]/98 backdrop-blur-md z-40 md:hidden flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="flex flex-col items-center justify-center h-full space-y-8 px-6">
+            <div className="flex flex-col items-center justify-center space-y-10 px-6 w-full">
               {pages.map((page, index) => (
                 <motion.button
                   key={page.id}
                   onClick={() => handleNavigate(page.id)}
-                  className={`text-2xl tracking-widest uppercase transition-colors ${
+                  className={`text-3xl tracking-widest uppercase transition-colors text-center ${
                     page.id === currentPage ? 'text-[#B6B6B4]' : 'text-[#F5F5F5]'
                   }`}
                   initial={{ opacity: 0, y: 20 }}
@@ -76,8 +76,9 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
                   {page.label}
                   {page.id === currentPage && (
                     <motion.div
-                      className="h-0.5 bg-[#B6B6B4] mt-2"
+                      className="h-0.5 bg-[#B6B6B4] mt-3 mx-auto"
                       layoutId="underline"
+                      style={{ width: '60px' }}
                     />
                   )}
                 </motion.button>

@@ -18,84 +18,90 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
   const masterworks = [
     {
       id: 1,
-      title: 'Ethereal Convergence',
-      year: '2023',
-      image: 'https://images.unsplash.com/photo-1683222042853-37cd29faf895?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvaWwlMjBwYWludGluZyUyMGNhbnZhc3xlbnwxfHx8fDE3NjM3MDM1MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Nature',
+      image: 'https://images.unsplash.com/photo-1681651040776-9cdca5f51aa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMG5hdHVyZSUyMGRyYXdpbmd8ZW58MXx8fHwxNzYzOTgwNTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 2,
-      title: 'Abstract Portrait VII',
-      year: '2022',
-      image: 'https://images.unsplash.com/photo-1696445149232-48ec4b1e9a8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBvcnRyYWl0JTIwYXJ0fGVufDF8fHx8MTc2Mzc0Mjg2MHww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Bint',
+      image: 'https://images.unsplash.com/photo-1762968755071-1c0d736fa8b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwc2tldGNofGVufDF8fHx8MTc2Mzk4MDUxOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 3,
-      title: 'Museum Reflections',
-      year: '2021',
-      image: 'https://images.unsplash.com/photo-1551963363-a6a4711d390a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGFzc2ljYWwlMjBwYWludGluZyUyMG11c2V1bXxlbnwxfHx8fDE3NjM4MDYxNzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Sorrow',
+      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBwb3J0cmFpdCUyMHNvcnJvd3xlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 4,
-      title: 'Contemporary Dialogue',
-      year: '2023',
-      image: 'https://images.unsplash.com/photo-1647792845543-a8032c59cbdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5fGVufDF8fHx8MTc2MzgwMTcxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'She',
+      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Mzk4MDUxOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 5,
-      title: 'Sculptural Form',
-      year: '2022',
-      image: 'https://images.unsplash.com/photo-1760808291592-ab99340e9ea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5lJTIwYXJ0JTIwc2N1bHB0dXJlfGVufDF8fHx8MTc2MzgwNjE3Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Age',
+      image: 'https://images.unsplash.com/photo-1622039926265-7e1f6fc38765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwYWdlJTIwZWxkZXJseXxlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 6,
-      title: 'Modern Exhibition',
-      year: '2023',
-      image: 'https://images.unsplash.com/photo-1643888395130-4cb09f9814d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcnQlMjBleGhpYml0aW9ufGVufDF8fHx8MTc2MzY5NjA5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Mother',
+      image: 'https://images.unsplash.com/photo-1733006613974-f8d65c661e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBtb3RoZXJ8ZW58MXx8fHwxNzYzOTgwNTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    },
+    {
+      id: 7,
+      title: 'Sai Pallavi',
+      image: 'https://images.unsplash.com/photo-1638627433693-604671edcf66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY3RyZXNzJTIwcG9ydHJhaXQlMjBpbmRpYW58ZW58MXx8fHwxNzYzOTgwNTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
   ];
 
   const artForSale = [
     {
       id: 1,
-      title: 'Portrait in Contemplation',
-      price: '$15,000',
-      dimensions: '36" × 48"',
-      image: 'https://images.unsplash.com/photo-1701958213864-2307a737e853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMHBhaW50aW5nJTIwYXJ0fGVufDF8fHx8MTc2MzcyNzEzMnww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Sorrow',
+      price: '₹56,000',
+      dimensions: '15" × 18"',
+      framedDimensions: 'With frame: 19" × 23"',
+      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBwb3J0cmFpdCUyMHNvcnJvd3xlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 2,
-      title: 'Ethereal Landscape',
-      price: '$22,500',
-      dimensions: '48" × 60"',
-      image: 'https://images.unsplash.com/photo-1684410008411-6ccac995726d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBwYWludGluZyUyMGNhbnZhc3xlbnwxfHx8fDE3NjM4MDYyMjR8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Age',
+      price: '₹800',
+      dimensions: '18" × 24"',
+      framedDimensions: '',
+      image: 'https://images.unsplash.com/photo-1622039926265-7e1f6fc38765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwYWdlJTIwZWxkZXJseXxlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 3,
-      title: 'Abstract Composition IX',
-      price: '$18,000',
-      dimensions: '40" × 40"',
-      image: 'https://images.unsplash.com/photo-1681235014294-588fea095706?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydCUyMHBhaW50aW5nfGVufDF8fHx8MTc2MzcwOTEwMHww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'She',
+      price: '₹440',
+      dimensions: '18" × 24"',
+      framedDimensions: '',
+      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Mzk4MDUxOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 4,
-      title: 'Luminous Forms',
-      price: '$12,000',
-      dimensions: '30" × 40"',
-      image: 'https://images.unsplash.com/photo-1683222042853-37cd29faf895?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvaWwlMjBwYWludGluZyUyMGNhbnZhc3xlbnwxfHx8fDE3NjM3MDM1MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Nature',
+      price: '₹24,000',
+      dimensions: '11" × 16"',
+      framedDimensions: 'With frame: 15" × 20"',
+      soldOut: true,
+      image: 'https://images.unsplash.com/photo-1681651040776-9cdca5f51aa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMG5hdHVyZSUyMGRyYXdpbmd8ZW58MXx8fHwxNzYzOTgwNTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 5,
-      title: 'Midnight Reverie',
-      price: '$25,000',
-      dimensions: '54" × 72"',
-      image: 'https://images.unsplash.com/photo-1696445149232-48ec4b1e9a8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBvcnRyYWl0JTIwYXJ0fGVufDF8fHx8MTc2Mzc0Mjg2MHww&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Bint',
+      price: '₹2,500',
+      dimensions: '8" × 11"',
+      framedDimensions: '',
+      image: 'https://images.unsplash.com/photo-1762968755071-1c0d736fa8b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwc2tldGNofGVufDF8fHx8MTc2Mzk4MDUxOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
     {
       id: 6,
-      title: 'Golden Hour Study',
-      price: '$14,500',
-      dimensions: '32" × 44"',
-      image: 'https://images.unsplash.com/photo-1551963363-a6a4711d390a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGFzc2ljYWwlMjBwYWludGluZyUyMG11c2V1bXxlbnwxfHx8fDE3NjM4MDYxNzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'Mother',
+      price: '₹32,000',
+      dimensions: '11" × 16"',
+      framedDimensions: 'With frame: 15" × 20"',
+      image: 'https://images.unsplash.com/photo-1733006613974-f8d65c661e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBtb3RoZXJ8ZW58MXx8fHwxNzYzOTgwNTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
   ];
 
@@ -109,13 +115,19 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <button
-            onClick={() => onNavigate('splash')}
-            className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Theory of Arts
-          </button>
+          <div className="flex items-center gap-4">
+            {/* Logo Placeholder */}
+            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[#B6B6B4] flex items-center justify-center">
+              <span className="text-[#B6B6B4] text-xs">LOGO</span>
+            </div>
+            <button
+              onClick={() => onNavigate('splash')}
+              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              Theory of Arts
+            </button>
+          </div>
           <MobileNav currentPage="gallery" onNavigate={onNavigate} />
         </div>
       </motion.header>
@@ -181,7 +193,6 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                         <h3 className="text-2xl text-[#B6B6B4] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                           {work.title}
                         </h3>
-                        <p className="text-[#8A8A8A]">{work.year}</p>
                       </div>
                     </div>
                   </div>
@@ -253,15 +264,24 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                     {product.title}
                   </h3>
                   <p className="text-[#8A8A8A] mb-1">{product.dimensions}</p>
+                  {product.framedDimensions && (
+                    <p className="text-[#8A8A8A] mb-1">{product.framedDimensions}</p>
+                  )}
                   <p className="text-[#B6B6B4] mb-6">{product.price}</p>
 
                   {/* CTA Button */}
-                  <button
-                    onClick={() => onNavigate('contacts')}
-                    className="w-full py-3 bg-[#B6B6B4] text-[#000100] hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(182,182,180,0.3)]"
-                  >
-                    Inquire to Purchase
-                  </button>
+                  {product.soldOut ? (
+                    <div className="w-full py-3 bg-[#292929] border-2 border-[#8A8A8A] text-[#8A8A8A] text-center">
+                      Sold Out
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => onNavigate('contacts')}
+                      className="w-full py-3 bg-[#B6B6B4] text-[#000100] hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(182,182,180,0.3)]"
+                    >
+                      Inquire to Purchase
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
