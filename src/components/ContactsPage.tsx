@@ -31,15 +31,22 @@ export default function ContactsPage({
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            {/* Logo Placeholder */}
-            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[#B6B6B4] flex items-center justify-center">
-              <span className="text-[#B6B6B4] text-xs">LOGO</span>
-            </div>
-            <button
-              onClick={() => onNavigate("splash")}
-              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
+            {/* Logo */}
+<div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
+  <img
+    src="/assets/Logo.jpg"
+    alt="Logo"
+    className="w-full h-full object-cover rounded-full"
+  />
+</div>
+
+
+<button
+  onClick={() => onNavigate("splash")}
+  className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+  style={{ fontFamily: "Playfair Display, serif" }}
+>
+
               Theory of Arts
             </button>
           </div>
@@ -67,7 +74,7 @@ export default function ContactsPage({
               Begin Your Artistic Journey
             </h1>
             <p className="text-xl text-[#8A8A8A] max-w-2xl mx-auto leading-relaxed">
-              Connect with us to discuss commissions, course
+              Connect with me to discuss commissions, course
               enrollment, artwork purchases, or any inquiries
               about Theory of Arts.
             </p>
@@ -175,7 +182,7 @@ export default function ContactsPage({
             {/* Social Media */}
             <div className="flex items-center justify-center gap-8">
               <a
-                href="https://instagram.com/theoryofarts"
+                href="https://instagram.com/_theory_of_art"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-4 bg-[#292929] border-2 border-[#B6B6B4]/30 hover:border-[#B6B6B4] transition-all duration-300 hover:shadow-[0_0_20px_rgba(182,182,180,0.3)]"

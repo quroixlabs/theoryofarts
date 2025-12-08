@@ -19,40 +19,54 @@ export default function BioPage({ onNavigate }: BioPageProps) {
   return (
     <div className="min-h-screen bg-[#000100]">
       {/* Navigation Header */}
-      <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-[#000100]/95 backdrop-blur-sm border-b border-[#B6B6B4]/20"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+     <motion.header
+  className="fixed top-0 left-0 right-0 z-50 bg-[#000100]/95 backdrop-blur-sm border-b border-[#B6B6B4]/20"
+  initial={{ y: -100 }}
+  animate={{ y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div className="flex items-center gap-4">
+      
+      {/* Circular Logo */}
+      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
+        <img 
+          src="/assets/Logo.jpg" 
+          alt="Logo"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+
+      <button
+        onClick={() => onNavigate('splash')}
+        className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+        style={{ fontFamily: 'Playfair Display, serif' }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            {/* Logo Placeholder */}
-            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[#B6B6B4] flex items-center justify-center">
-              <span className="text-[#B6B6B4] text-xs">LOGO</span>
-            </div>
-            <button
-              onClick={() => onNavigate('splash')}
-              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
-              Theory of Arts
-            </button>
-          </div>
-          <MobileNav currentPage="bio" onNavigate={onNavigate} />
-        </div>
-      </motion.header>
+        Theory of Arts
+      </button>
+    </div>
+
+    <MobileNav currentPage="bio" onNavigate={onNavigate} />
+  </div>
+</motion.header>
+
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-end justify-center overflow-hidden mt-16 pb-32">
-        <div className="absolute inset-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1735027424220-2697560dc9f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc3QlMjBwb3J0cmFpdCUyMG1vbm9jaHJvbWV8ZW58MXx8fHwxNzYzODA2MTI1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Artist Portrait"
-            className="w-full h-full object-cover grayscale opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#000100]/60 via-transparent to-[#000100]" />
-        </div>
+      {/* Hero Section */}
+<section className="relative h-screen flex items-end justify-center overflow-hidden mt-16 pb-32">
+<div className="absolute lg:static inset-0 w-full h-full lg:h-auto">
+  <ImageWithFallback
+    src="/assets/BG.jpg"
+    alt="Artist Portrait"
+    className="w-full h-full lg:h-auto object-contain object-top grayscale opacity-40"
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-[#000100]/60 via-transparent to-[#000100]" />
+</div>
+
+
+
+
+
         
         <motion.div
           className="relative z-10 text-center px-6 max-w-4xl"
@@ -63,7 +77,7 @@ export default function BioPage({ onNavigate }: BioPageProps) {
           <p className="text-2xl md:text-4xl lg:text-5xl text-[#B6B6B4] italic leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
             "Emotion holds no true colors—it merely disguises itself as the way we see the world."
           </p>
-          <p className="text-[#8A8A8A] mt-6 text-base md:text-lg tracking-wider">— tanish</p>
+          <p className="text-[#8A8A8A] mt-6 text-base md:text-lg tracking-wider">— TANISH</p>
         </motion.div>
       </section>
 
@@ -80,7 +94,7 @@ export default function BioPage({ onNavigate }: BioPageProps) {
             {/* Left Column - Text */}
             <div className="space-y-8">
               <h2 className="text-4xl md:text-6xl text-[#B6B6B4] mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Philosophy
+                About me
               </h2>
               
               <div className="space-y-6 text-[#F5F5F5] leading-relaxed">
@@ -118,7 +132,7 @@ export default function BioPage({ onNavigate }: BioPageProps) {
             >
               <div className="border-2 border-[#B6B6B4]/30 p-4 transition-all duration-500 group-hover:border-[#B6B6B4] group-hover:shadow-[0_0_30px_rgba(182,182,180,0.3)]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1748791945355-4e20f188377d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc3QlMjBoYW5kcyUyMHBhaW50aW5nfGVufDF8fHx8MTc2MzgwNjEyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/assets/tanish_resized_1540px (1).jpeg"
                   alt="Artist at Work"
                   className="w-full h-auto object-cover"
                 />
@@ -159,3 +173,5 @@ export default function BioPage({ onNavigate }: BioPageProps) {
     </div>
   );
 }
+
+

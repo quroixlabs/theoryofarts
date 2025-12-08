@@ -1,8 +1,7 @@
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import Masonry from 'react-responsive-masonry';
-import { ResponsiveMasonry } from 'react-responsive-masonry';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import MobileNav from './MobileNav';
 
 type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
@@ -15,95 +14,102 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
   const [hoveredWork, setHoveredWork] = useState<number | null>(null);
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
 
+  // --------------------------------------
+  // MASTER WORKS (Corrected)
+  // --------------------------------------
   const masterworks = [
-    {
-      id: 1,
-      title: 'Nature',
-      image: 'https://images.unsplash.com/photo-1681651040776-9cdca5f51aa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMG5hdHVyZSUyMGRyYXdpbmd8ZW58MXx8fHwxNzYzOTgwNTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 2,
-      title: 'Bint',
-      image: 'https://images.unsplash.com/photo-1762968755071-1c0d736fa8b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwc2tldGNofGVufDF8fHx8MTc2Mzk4MDUxOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 3,
-      title: 'Sorrow',
-      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBwb3J0cmFpdCUyMHNvcnJvd3xlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 4,
-      title: 'She',
-      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Mzk4MDUxOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 5,
-      title: 'Age',
-      image: 'https://images.unsplash.com/photo-1622039926265-7e1f6fc38765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwYWdlJTIwZWxkZXJseXxlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 6,
-      title: 'Mother',
-      image: 'https://images.unsplash.com/photo-1733006613974-f8d65c661e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBtb3RoZXJ8ZW58MXx8fHwxNzYzOTgwNTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 7,
-      title: 'Sai Pallavi',
-      image: 'https://images.unsplash.com/photo-1638627433693-604671edcf66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY3RyZXNzJTIwcG9ydHJhaXQlMjBpbmRpYW58ZW58MXx8fHwxNzYzOTgwNTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-  ];
+  {
+    id: 1,
+    title: 'Nature',
+    image: '/assets/Nature.jpg',
+  },
+  {
+    id: 2,
+    title: 'Bint',
+    image: '/assets/Bint.jpg',
+  },
+  {
+    id: 3,
+    title: 'Sorrow',
+    image: '/assets/Old.jpg',
+  },
+  {
+    id: 4,
+    title: 'She',
+    image: '/assets/SHE.jpg',
+  },
+  {
+    id: 5,
+    title: 'Age',
+    image: '/assets/Age.jpg',
+  },
+  {
+    id: 6,
+    title: 'Mother',
+    image: '/assets/Mother.jpg',
+  },
+  {
+    id: 7,
+    title: 'Sai Pallavi',
+    image: '/assets/Saipallavi.jpg',
+  },
+];
+
+
+
 
   const artForSale = [
-    {
-      id: 1,
-      title: 'Sorrow',
-      price: '₹56,000',
-      dimensions: '15" × 18"',
-      framedDimensions: 'With frame: 19" × 23"',
-      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBwb3J0cmFpdCUyMHNvcnJvd3xlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 2,
-      title: 'Age',
-      price: '₹800',
-      dimensions: '18" × 24"',
-      framedDimensions: '',
-      image: 'https://images.unsplash.com/photo-1622039926265-7e1f6fc38765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwYWdlJTIwZWxkZXJseXxlbnwxfHx8fDE3NjM5ODA1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 3,
-      title: 'She',
-      price: '₹440',
-      dimensions: '18" × 24"',
-      framedDimensions: '',
-      image: 'https://images.unsplash.com/photo-1734092916521-053b3ffc706b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Mzk4MDUxOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 4,
-      title: 'Nature',
-      price: '₹24,000',
-      dimensions: '11" × 16"',
-      framedDimensions: 'With frame: 15" × 20"',
-      soldOut: true,
-      image: 'https://images.unsplash.com/photo-1681651040776-9cdca5f51aa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMG5hdHVyZSUyMGRyYXdpbmd8ZW58MXx8fHwxNzYzOTgwNTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 5,
-      title: 'Bint',
-      price: '₹2,500',
-      dimensions: '8" × 11"',
-      framedDimensions: '',
-      image: 'https://images.unsplash.com/photo-1762968755071-1c0d736fa8b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMHBvcnRyYWl0JTIwc2tldGNofGVufDF8fHx8MTc2Mzk4MDUxOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-    {
-      id: 6,
-      title: 'Mother',
-      price: '₹32,000',
-      dimensions: '11" × 16"',
-      framedDimensions: 'With frame: 15" × 20"',
-      image: 'https://images.unsplash.com/photo-1733006613974-f8d65c661e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGFyY29hbCUyMGRyYXdpbmclMjBtb3RoZXJ8ZW58MXx8fHwxNzYzOTgwNTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    },
-  ];
+  {
+    id: 1,
+    title: 'Sorrow',
+    price: '₹56,000',
+    dimensions: '15" × 18"',
+    framedDimensions: 'With frame: 19" × 23"',
+    image: '/assets/Old.jpg',
+  },
+  {
+    id: 2,
+    title: 'Age',
+    price: '₹800',
+    dimensions: '18" × 24"',
+    framedDimensions: '',
+    image: '/assets/Age.jpg',
+  },
+  {
+    id: 3,
+    title: 'She',
+    price: '₹440',
+    dimensions: '18" × 24"',
+    framedDimensions: '',
+    image: '/assets/SHE.jpg',
+  },
+  {
+    id: 4,
+    title: 'Nature',
+    price: '₹24,000',
+    dimensions: '11" × 16"',
+    framedDimensions: 'With frame: 15" × 20"',
+    soldOut: true,
+    image: '/assets/Nature.jpg',
+  },
+  {
+    id: 5,
+    title: 'Bint',
+    price: '₹2,500',
+    dimensions: '8" × 11"',
+    framedDimensions: '',
+    image: '/assets/Bint.jpg',
+  },
+  {
+    id: 6,
+    title: 'Mother',
+    price: '₹32,000',
+    dimensions: '11" × 16"',
+    framedDimensions: 'With frame: 15" × 20"',
+    image: '/assets/Mother.jpg',
+  },
+];
+
 
   return (
     <div className="min-h-screen bg-[#000100]">
@@ -116,15 +122,22 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            {/* Logo Placeholder */}
-            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[#B6B6B4] flex items-center justify-center">
-              <span className="text-[#B6B6B4] text-xs">LOGO</span>
-            </div>
-            <button
-              onClick={() => onNavigate('splash')}
-              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
+            {/* Logo */}
+<div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
+  <img
+    src="/assets/Logo.jpg"
+    alt="Logo"
+    className="w-full h-full object-cover rounded-full"
+  />
+</div>
+
+
+<button
+  onClick={() => onNavigate("splash")}
+  className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+  style={{ fontFamily: "Playfair Display, serif" }}
+>
+
               Theory of Arts
             </button>
           </div>
