@@ -1,24 +1,17 @@
 import { motion } from "motion/react";
 import { Instagram } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import MobileNav from "./MobileNav";
 
-type Page =
-  | "splash"
-  | "bio"
-  | "gallery"
-  | "course"
-  | "contacts";
+export default function ContactsPage() {
+  const navigate = useNavigate();
 
-interface ContactsPageProps {
-  onNavigate: (page: Page) => void;
-}
-
-export default function ContactsPage({
-  onNavigate,
-}: ContactsPageProps) {
   // Replace with actual WhatsApp business number
   const whatsappNumber = "9363125478";
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\+/g, "")}?text=Hello,%20I'm%20interested%20in%20your%20art%20services`;
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(
+    /\+/g,
+    ""
+  )}?text=Hello,%20I'm%20interested%20in%20your%20art%20services`;
 
   return (
     <div className="min-h-screen bg-[#000100]">
@@ -32,28 +25,24 @@ export default function ContactsPage({
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             {/* Logo */}
-<div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
-  <img
-    src="/assets/Logo.jpg"
-    alt="Logo"
-    className="w-full h-full object-cover rounded-full"
-  />
-</div>
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
+              <img
+                src="/assets/Logo.jpg"
+                alt="Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
 
-
-<button
-  onClick={() => onNavigate("splash")}
-  className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-  style={{ fontFamily: "Playfair Display, serif" }}
->
-
+            <button
+              onClick={() => navigate("/")}
+              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+              style={{ fontFamily: "Playfair Display, serif" }}
+            >
               Theory of Arts
             </button>
           </div>
-          <MobileNav
-            currentPage="contacts"
-            onNavigate={onNavigate}
-          />
+
+          <MobileNav currentPage="contacts" />
         </div>
       </motion.header>
 
@@ -74,9 +63,8 @@ export default function ContactsPage({
               Begin Your Artistic Journey
             </h1>
             <p className="text-xl text-[#8A8A8A] max-w-2xl mx-auto leading-relaxed">
-              Connect with me to discuss commissions, course
-              enrollment, artwork purchases, or any inquiries
-              about Theory of Arts.
+              Connect with me to discuss commissions, course enrollment,
+              artwork purchases, or any inquiries about Theory of Arts.
             </p>
           </motion.div>
 
@@ -123,9 +111,7 @@ export default function ContactsPage({
 
                 <h2
                   className="text-3xl md:text-4xl text-[#F5F5F5] mb-6"
-                  style={{
-                    fontFamily: "Playfair Display, serif",
-                  }}
+                  style={{ fontFamily: "Playfair Display, serif" }}
                 >
                   Contact AI Agent on WhatsApp
                 </h2>
@@ -144,10 +130,7 @@ export default function ContactsPage({
                   className="inline-block px-16 py-6 bg-[#B6B6B4] text-[#000100] text-xl hover:bg-[#B6B6B4]/90 transition-all duration-300 gold-glow-animation"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontWeight: 600,
-                  }}
+                  style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
                 >
                   Start Conversation
                 </motion.a>
@@ -179,7 +162,6 @@ export default function ContactsPage({
               Connect With Us
             </h3>
 
-            {/* Social Media */}
             <div className="flex items-center justify-center gap-8">
               <a
                 href="https://instagram.com/_theory_of_art"

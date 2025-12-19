@@ -1,51 +1,50 @@
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
-type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
+export default function SplashPage() {
+  const navigate = useNavigate();
 
-interface SplashPageProps {
-  onNavigate: (page: Page) => void;
-}
-
-export default function SplashPage({ onNavigate }: SplashPageProps) {
   const navItems = [
-    { label: 'BIO', page: 'bio' as Page },
-    { label: 'GALLERY', page: 'gallery' as Page },
-    { label: 'COURSE', page: 'course' as Page },
-    { label: 'CONTACTS', page: 'contacts' as Page },
+    { label: 'BIO', path: '/bio' },
+    { label: 'GALLERY', path: '/gallery' },
+    { label: 'COURSE', path: '/course' },
+    { label: 'CONTACTS', path: '/contacts' },
   ];
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#000100] relative overflow-hidden">
       {/* Subtle background texture */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, #B6B6B4 1px, transparent 0)',
-        backgroundSize: '40px 40px'
-      }} />
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 1px 1px, #B6B6B4 1px, transparent 0)',
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-      <motion.div 
+      <motion.div
         className="relative z-10 flex flex-col items-center justify-center space-y-12 px-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
-        {/* Logo Placeholder */}
         {/* Logo */}
-<motion.div
-  className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#B6B6B4] flex items-center justify-center rounded-full overflow-hidden"
-  initial={{ opacity: 0, scale: 0.8 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1, delay: 0.1 }}
->
-  <img
-    src="/assets/Logo.jpg"
-    alt="Logo"
-    className="w-full h-full object-cover rounded-full"
-  />
-</motion.div>
-
+        <motion.div
+          className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#B6B6B4] flex items-center justify-center rounded-full overflow-hidden"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.1 }}
+        >
+          <img
+            src="/assets/Logo.jpg"
+            alt="Logo"
+            className="w-full h-full object-cover rounded-full"
+          />
+        </motion.div>
 
         {/* Main Title */}
-        <motion.h1 
+        <motion.h1
           className="text-6xl md:text-8xl text-[#F5F5F5] tracking-wider text-center"
           style={{ fontFamily: 'Playfair Display, serif' }}
           initial={{ opacity: 0, y: -20 }}
@@ -77,7 +76,7 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
               strokeLinecap="round"
               strokeLinejoin="round"
               style={{
-                filter: 'drop-shadow(0 0 8px rgba(182, 182, 180, 0.5))'
+                filter: 'drop-shadow(0 0 8px rgba(182, 182, 180, 0.5))',
               }}
             />
           </svg>
@@ -91,11 +90,14 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
           transition={{ duration: 1, delay: 0.6 }}
         >
           {navItems.map((item, index) => (
-            <div key={item.page} className="flex items-center">
+            <div key={item.path} className="flex items-center">
               <motion.button
-                onClick={() => onNavigate(item.page)}
+                onClick={() => navigate(item.path)}
                 className="text-[#F5F5F5] text-lg md:text-xl tracking-widest hover:text-[#B6B6B4] transition-all duration-300 relative group px-6 py-2"
-                style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.2em' }}
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  letterSpacing: '0.2em',
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: -20 }}
@@ -105,7 +107,7 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#B6B6B4] group-hover:w-full transition-all duration-300" />
               </motion.button>
-              
+
               {/* Gold divider between items */}
               {index < navItems.length - 1 && (
                 <motion.div

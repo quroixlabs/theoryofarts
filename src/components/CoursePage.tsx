@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Palette, Lightbulb, Users, Award } from 'lucide-react';
 import {
@@ -10,13 +10,9 @@ import {
 } from './ui/accordion';
 import MobileNav from './MobileNav';
 
-type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
+export default function CoursePage() {
+  const navigate = useNavigate();
 
-interface CoursePageProps {
-  onNavigate: (page: Page) => void;
-}
-
-export default function CoursePage({ onNavigate }: CoursePageProps) {
   const features = [
     {
       icon: Palette,
@@ -94,26 +90,25 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
-           {/* Logo */}
-<div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
-  <img
-    src="/assets/Logo.jpg"
-    alt="Logo"
-    className="w-full h-full object-cover rounded-full"
-  />
-</div>
+            {/* Logo */}
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
+              <img
+                src="/assets/Logo.jpg"
+                alt="Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
 
-
-<button
-  onClick={() => onNavigate("splash")}
-  className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-  style={{ fontFamily: "Playfair Display, serif" }}
->
-
+            <button
+              onClick={() => navigate('/')}
+              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Theory of Arts
             </button>
           </div>
-          <MobileNav currentPage="course" onNavigate={onNavigate} />
+
+          <MobileNav currentPage="course" />
         </div>
       </motion.header>
 
@@ -134,18 +129,24 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h1 className="text-5xl md:text-7xl text-[#B6B6B4] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h1
+            className="text-5xl md:text-7xl text-[#B6B6B4] mb-6"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
             The Theory of Arts Masterclass
           </h1>
+
           <p className="text-2xl md:text-3xl text-[#F5F5F5] mb-4">
             Achieve Artistic Excellence
           </p>
+
           <p className="text-lg text-[#8A8A8A] max-w-3xl mx-auto mb-12 leading-relaxed">
-            A comprehensive online course designed to transform aspiring artists into confident creators. 
+            A comprehensive online course designed to transform aspiring artists into confident creators.
             Learn the techniques, philosophy, and professional practices that define world-class artistry.
           </p>
+
           <motion.button
-            onClick={() => onNavigate('contacts')}
+            onClick={() => navigate('/contacts')}
             className="px-12 py-4 bg-[#B6B6B4] text-[#000100] text-lg hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(182,182,180,0.4)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -184,7 +185,10 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
                   <div className="inline-block p-4 bg-[#B6B6B4]/10 rounded-full mb-6">
                     <Icon className="w-8 h-8 text-[#B6B6B4]" />
                   </div>
-                  <h3 className="text-xl text-[#F5F5F5] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3
+                    className="text-xl text-[#F5F5F5] mb-4"
+                    style={{ fontFamily: 'Playfair Display, serif' }}
+                  >
                     {feature.title}
                   </h3>
                   <p className="text-[#8A8A8A] leading-relaxed">
@@ -224,7 +228,10 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
                   value={`item-${index}`}
                   className="border-2 border-[#B6B6B4]/20 bg-[#292929] px-6 data-[state=open]:border-[#B6B6B4]"
                 >
-                  <AccordionTrigger className="text-xl text-[#B6B6B4] hover:no-underline" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <AccordionTrigger
+                    className="text-xl text-[#B6B6B4] hover:no-underline"
+                    style={{ fontFamily: 'Playfair Display, serif' }}
+                  >
                     {module.title}
                   </AccordionTrigger>
                   <AccordionContent>
@@ -265,12 +272,12 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Transform your creative vision into reality with personalized guidance and proven techniques. 
+            Transform your creative vision into reality with personalized guidance and proven techniques.
             Connect with us to explore enrollment options tailored to your artistic goals.
           </motion.p>
 
           <motion.button
-            onClick={() => onNavigate('contacts')}
+            onClick={() => navigate('/contacts')}
             className="px-16 py-5 bg-[#B6B6B4] text-[#000100] text-lg hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(182,182,180,0.4)]"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

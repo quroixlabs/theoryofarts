@@ -1,16 +1,12 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import MobileNav from './MobileNav';
 
-type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
-
-interface BioPageProps {
-  onNavigate: (page: Page) => void;
-}
-
-export default function BioPage({ onNavigate }: BioPageProps) {
+export default function BioPage() {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -19,65 +15,62 @@ export default function BioPage({ onNavigate }: BioPageProps) {
   return (
     <div className="min-h-screen bg-[#000100]">
       {/* Navigation Header */}
-     <motion.header
-  className="fixed top-0 left-0 right-0 z-50 bg-[#000100]/95 backdrop-blur-sm border-b border-[#B6B6B4]/20"
-  initial={{ y: -100 }}
-  animate={{ y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div className="flex items-center gap-4">
-      
-      {/* Circular Logo */}
-      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
-        <img 
-          src="/assets/Logo.jpg" 
-          alt="Logo"
-          className="w-full h-full object-cover rounded-full"
-        />
-      </div>
-
-      <button
-        onClick={() => onNavigate('splash')}
-        className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
-        style={{ fontFamily: 'Playfair Display, serif' }}
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 bg-[#000100]/95 backdrop-blur-sm border-b border-[#B6B6B4]/20"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        Theory of Arts
-      </button>
-    </div>
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            {/* Circular Logo */}
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-[#B6B6B4]/40">
+              <img
+                src="/assets/Logo.jpg"
+                alt="Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
 
-    <MobileNav currentPage="bio" onNavigate={onNavigate} />
-  </div>
-</motion.header>
+            <button
+              onClick={() => navigate('/')}
+              className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              Theory of Arts
+            </button>
+          </div>
 
+          <MobileNav currentPage="bio" />
+        </div>
+      </motion.header>
 
       {/* Hero Section */}
-      {/* Hero Section */}
-<section className="relative h-screen flex items-end justify-center overflow-hidden mt-16 pb-32">
-<div className="absolute lg:static inset-0 w-full h-full lg:h-auto">
-  <ImageWithFallback
-    src="/assets/BG.jpg"
-    alt="Artist Portrait"
-    className="w-full h-full lg:h-auto object-contain object-top grayscale opacity-40"
-  />
-  <div className="absolute inset-0 bg-gradient-to-b from-[#000100]/60 via-transparent to-[#000100]" />
-</div>
+      <section className="relative h-screen flex items-end justify-center overflow-hidden mt-16 pb-32">
+        <div className="absolute lg:static inset-0 w-full h-full lg:h-auto">
+          <ImageWithFallback
+            src="/assets/BG.jpg"
+            alt="Artist Portrait"
+            className="w-full h-full lg:h-auto object-contain object-top grayscale opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#000100]/60 via-transparent to-[#000100]" />
+        </div>
 
-
-
-
-
-        
         <motion.div
           className="relative z-10 text-center px-6 max-w-4xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <p className="text-2xl md:text-4xl lg:text-5xl text-[#B6B6B4] italic leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <p
+            className="text-2xl md:text-4xl lg:text-5xl text-[#B6B6B4] italic leading-relaxed"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
             "Emotion holds no true colors—it merely disguises itself as the way we see the world."
           </p>
-          <p className="text-[#8A8A8A] mt-6 text-base md:text-lg tracking-wider">— TANISH</p>
+          <p className="text-[#8A8A8A] mt-6 text-base md:text-lg tracking-wider">
+            — TANISH
+          </p>
         </motion.div>
       </section>
 
@@ -91,38 +84,39 @@ export default function BioPage({ onNavigate }: BioPageProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            {/* Left Column - Text */}
+            {/* Left Column */}
             <div className="space-y-8">
-              <h2 className="text-4xl md:text-6xl text-[#B6B6B4] mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-4xl md:text-6xl text-[#B6B6B4] mb-8"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 About me
               </h2>
-              
+
               <div className="space-y-6 text-[#F5F5F5] leading-relaxed">
                 <p>
-                  Through my journey, I've learned to see the world not for its colors, but for its emotions. 
+                  Through my journey, I've learned to see the world not for its colors, but for its emotions.
                   I move through a space that may look plain, but it's filled with feeling, depth, and meaning.
                 </p>
-                
+
                 <p>
-                  Each mark I make is like a quiet moment of thought, each surface a conversation with silence. 
-                  My art isn't meant to decorate—it's meant to something to understand the emotion and balance 
-                  between darkness and light.
+                  Each mark I make is like a quiet moment of thought, each surface a conversation with silence.
+                  My art isn't meant to decorate—it's meant to understand the emotion and balance between darkness and light.
                 </p>
-                
+
                 <p>
-                  I'm guided by discipline and passion. To me, art isn't just something you see—it's something 
+                  I'm guided by discipline and passion. To me, art isn't just something you see—it's something
                   you feel. It speaks when words can't, connecting people through shared human experience.
                 </p>
-                
+
                 <p className="text-[#8A8A8A] italic">
-                  The Theory of Arts isn't just a collection of my work—it's my way of seeing the world. It's a 
-                  belief that true vision comes from feeling, not color, and an invitation to step into the calm 
-                  and transformation that silence can bring.
+                  The Theory of Arts isn't just a collection of my work—it's my way of seeing the world.
+                  It's a belief that true vision comes from feeling, not color.
                 </p>
               </div>
             </div>
 
-            {/* Right Column - Image */}
+            {/* Right Column */}
             <motion.div
               className="relative group"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -151,18 +145,23 @@ export default function BioPage({ onNavigate }: BioPageProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-5xl text-[#F5F5F5] mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2
+            className="text-3xl md:text-5xl text-[#F5F5F5] mb-8"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
             Explore My Work
           </h2>
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button
-              onClick={() => onNavigate('gallery')}
+              onClick={() => navigate('/gallery')}
               className="px-10 py-4 bg-[#B6B6B4] text-[#000100] hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(182,182,180,0.4)]"
             >
               View Gallery
             </button>
+
             <button
-              onClick={() => onNavigate('course')}
+              onClick={() => navigate('/course')}
               className="px-10 py-4 border-2 border-[#B6B6B4] text-[#B6B6B4] hover:bg-[#B6B6B4]/10 transition-all duration-300 hover:scale-105"
             >
               Explore Masterclass
@@ -173,5 +172,3 @@ export default function BioPage({ onNavigate }: BioPageProps) {
     </div>
   );
 }
-
-

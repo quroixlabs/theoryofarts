@@ -1,26 +1,24 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
-
-interface MobileNavProps {
-  currentPage: Page;
-  onNavigate: (page: Page) => void;
-}
-
-export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
+export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const pages = [
-    { id: 'bio' as Page, label: 'Bio' },
-    { id: 'gallery' as Page, label: 'Gallery' },
-    { id: 'course' as Page, label: 'Course' },
-    { id: 'contacts' as Page, label: 'Contacts' },
+    { path: '/bio', label: 'Bio' },
+    { path: '/gallery', label: 'Gallery' },
+    { path: '/course', label: 'Course' },
+    { path: '/contacts', label: 'Contacts' },
   ];
 
-  const handleNavigate = (page: Page) => {
-    onNavigate(page);
+  const isActive = (path: string) => location.pathname === path;
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
     setIsOpen(false);
   };
 
@@ -39,11 +37,12 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
       <nav className="hidden md:flex space-x-8">
         {pages.map((page) => (
           <button
-            key={page.id}
-            onClick={() => onNavigate(page.id)}
-            className={`text-sm tracking-widest uppercase transition-colors ${
-              page.id === currentPage ? 'text-[#B6B6B4]' : 'text-[#F5F5F5] hover:text-[#B6B6B4]'
-            }`}
+            key={page.path}
+            onClick={() => navigate(page.path)}
+            className={`text-sm tracking-widest uppercase transition-colors ${isActive(page.path)
+                ? 'text-[#B6B6B4]'
+                : 'text-[#F5F5F5] hover:text-[#B6B6B4]'
+              }`}
           >
             {page.label}
           </button>
@@ -63,18 +62,20 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
             <div className="flex flex-col items-center justify-center space-y-10 px-6 w-full">
               {pages.map((page, index) => (
                 <motion.button
-                  key={page.id}
-                  onClick={() => handleNavigate(page.id)}
-                  className={`text-3xl tracking-widest uppercase transition-colors text-center ${
-                    page.id === currentPage ? 'text-[#B6B6B4]' : 'text-[#F5F5F5]'
-                  }`}
+                  key={page.path}
+                  onClick={() => handleNavigate(page.path)}
+                  className={`text-3xl tracking-widest uppercase transition-colors text-center ${isActive(page.path)
+                      ? 'text-[#B6B6B4]'
+                      : 'text-[#F5F5F5]'
+                    }`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
                   {page.label}
-                  {page.id === currentPage && (
+
+                  {isActive(page.path) && (
                     <motion.div
                       className="h-0.5 bg-[#B6B6B4] mt-3 mx-auto"
                       layoutId="underline"
